@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Website Generator | Portfolio Creator Tool</title>
+    <link rel="stylesheet" href="generator-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                <h1>AI Website Generator</h1>
+            </div>
+            <nav>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#examples">Examples</a>
+                <a href="https://github.com/your-username/ai-website-generator" target="_blank">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Create beautiful portfolio websites with AI</h2>
+                <p class="subtitle">Turn your ideas into custom-designed websites using natural language</p>
+                <a href="#generator" class="cta-button">Get Started</a>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <h2>How It Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Describe Your Portfolio</h3>
+                        <p>Tell us about yourself, your profession, experience, and the projects you want to showcase.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>AI Generates Your Website</h3>
+                        <p>Our AI analyzes your input and creates custom HTML, CSS, and content tailored to your needs.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Download & Customize</h3>
+                        <p>Download the generated files, add your images, and further customize your site as needed.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="generator" class="generator">
+            <div class="container">
+                <h2>Generate Your Portfolio Website</h2>
+                <p class="subtitle">Describe yourself and what you want in your portfolio</p>
+                
+                <div class="generator-form">
+                    <div class="input-container">
+                        <label for="user-prompt">Your Description</label>
+                        <textarea id="user-prompt" placeholder="Example: Create a portfolio website for a graphic designer named Sarah with 3 years of experience and 2 projects in branding and UI design. Include a blue color scheme and a minimalist style." rows="5"></textarea>
+                    </div>
+                    
+                    <div class="options">
+                        <h4>Customize Your Portfolio</h4>
+                        
+                        <div class="option-group">
+                            <label>Profession</label>
+                            <select id="profession">
+                                <option value="designer">Graphic Designer</option>
+                                <option value="developer">Web Developer</option>
+                                <option value="photographer">Photographer</option>
+                                <option value="writer">Writer</option>
+                                <option value="artist">Artist</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="option-group">
+                            <label>Color Theme</label>
+                            <div class="color-options">
+                                <div class="color-option" data-color="#4A90E2" style="background-color: #4A90E2"></div>
+                                <div class="color-option" data-color="#50C878" style="background-color: #50C878"></div>
+                                <div class="color-option" data-color="#FF6B6B" style="background-color: #FF6B6B"></div>
+                                <div class="color-option" data-color="#9B59B6" style="background-color: #9B59B6"></div>
+                                <div class="color-option" data-color="#34495E" style="background-color: #34495E"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="option-group">
+                            <label>Layout Style</label>
+                            <div class="layout-options">
+                                <div class="layout-option active" data-layout="minimal">
+                                    <i class="fas fa-columns"></i>
+                                    <span>Minimal</span>
+                                </div>
+                                <div class="layout-option" data-layout="creative">
+                                    <i class="fas fa-th"></i>
+                                    <span>Creative</span>
+                                </div>
+                                <div class="layout-option" data-layout="modern">
+                                    <i class="fas fa-th-large"></i>
+                                    <span>Modern</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button id="generate-btn" class="generate-button">
+                        <i class="fas fa-magic"></i> Generate Website
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="preview" class="preview hidden">
+            <div class="container">
+                <h2>Your Generated Website</h2>
+                <div class="preview-actions">
+                    <button id="download-btn" class="action-button">
+                        <i class="fas fa-download"></i> Download Files
+                    </button>
+                    <button id="copy-btn" class="action-button">
+                        <i class="fas fa-copy"></i> Copy Code
+                    </button>
+                    <button id="preview-btn" class="action-button">
+                        <i class="fas fa-eye"></i> Live Preview
+                    </button>
+                </div>
+                
+                <div class="code-preview">
+                    <div class="code-tabs">
+                        <button class="tab-btn active" data-tab="html">index.html</button>
+                        <button class="tab-btn" data-tab="css">styles.css</button>
+                        <button class="tab-btn" data-tab="readme">README.md</button>
+                    </div>
+                    
+                    <div class="code-content">
+                        <pre id="html-code" class="code-block active"></pre>
+                        <pre id="css-code" class="code-block"></pre>
+                        <pre id="readme-code" class="code-block"></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="examples" class="examples">
+            <div class="container">
+                <h2>Example Templates</h2>
+                <p class="subtitle">Here are some examples of portfolios our tool can generate</p>
+                
+                <div class="example-grid">
+                    <div class="example-card">
+                        <div class="example-preview">
+                            <img src="https://via.placeholder.com/300x200/4A90E2/FFFFFF?text=Designer+Portfolio" alt="Designer Portfolio">
+                        </div>
+                        <div class="example-info">
+                            <h3>Graphic Designer</h3>
+                            <p>Clean, visual-focused portfolio for showcasing design work</p>
+                            <button class="use-template" data-template="designer">Use This Template</button>
+                        </div>
+                    </div>
+                    
+                    <div class="example-card">
+                        <div class="example-preview">
+                            <img src="https://via.placeholder.com/300x200/50C878/FFFFFF?text=Developer+Portfolio" alt="Developer Portfolio">
+                        </div>
+                        <div class="example-info">
+                            <h3>Web Developer</h3>
+                            <p>Technical portfolio highlighting coding projects and skills</p>
+                            <button class="use-template" data-template="developer">Use This Template</button>
+                        </div>
+                    </div>
+                    
+                    <div class="example-card">
+                        <div class="example-preview">
+                            <img src="https://via.placeholder.com/300x200/FF6B6B/FFFFFF?text=Photographer+Portfolio" alt="Photographer Portfolio">
+                        </div>
+                        <div class="example-info">
+                            <h3>Photographer</h3>
+                            <p>Gallery-focused layout to showcase photography work</p>
+                            <button class="use-template" data-template="photographer">Use This Template</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 AI Website Generator | Powered by Cursor</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Templates (hidden, used by JS) -->
+    <div id="templates" style="display: none;">
+        <!-- Designer Template Data -->
+        <div id="template-designer" data-prompt="Create a portfolio website for a graphic designer with 5 years of experience specializing in brand identity and UI/UX design. Include sections for about, skills, projects, and contact information. Use a clean, minimal design with blue accent colors."></div>
+        
+        <!-- Developer Template Data -->
+        <div id="template-developer" data-prompt="Create a portfolio website for a full-stack web developer with 3 years of experience in JavaScript, React, and Node.js. Include sections for projects, skills, and contact information. Use a modern design with green accent colors."></div>
+        
+        <!-- Photographer Template Data -->
+        <div id="template-photographer" data-prompt="Create a portfolio website for a photographer specializing in portrait and landscape photography. Include a gallery section with support for images and videos. Use a visual-focused layout with plenty of space for photos."></div>
+    </div>
+
+    <!-- The Modal for Live Preview -->
+    <div id="preview-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Live Preview</h3>
+            <iframe id="preview-frame" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="generator-script.js"></script>
+</body>
+</html> 
